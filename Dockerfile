@@ -1,6 +1,4 @@
-FROM php:8.2-apache-bullseye
-
-# Habilitar mod_rewrite e instalar dependências
+FROM php:8.2-apache-bookworm
 # Habilitar mod_rewrite e instalar dependências
 RUN a2enmod rewrite \
     && apt-get update --fix-missing \
