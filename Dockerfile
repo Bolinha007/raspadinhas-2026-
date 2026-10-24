@@ -1,11 +1,13 @@
 FROM php:8.2-apache-bullseye
 
 # Habilitar mod_rewrite e instalar dependências
+# Habilitar mod_rewrite e instalar dependências
 RUN a2enmod rewrite \
-    && apt-get update && apt-get install -y \
-        libpq-dev \
-        unzip \
-        git \
+    && apt-get update --fix-missing \
+    && apt-get install -y --no-install-recommends \
+       libpq-dev \
+       unzip \
+       git \
     && docker-php-ext-install pdo pdo_pgsql pgsql \
     && rm -rf /var/lib/apt/lists/*
 
